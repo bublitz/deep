@@ -1,4 +1,4 @@
-package com.example.teste
+package br.net.drache.deeplink
 
 import io.flutter.embedding.android.FlutterActivity
 
