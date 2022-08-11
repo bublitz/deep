@@ -5,10 +5,13 @@ import 'theme_preference.dart';
 
 class ThemeModel extends ChangeNotifier {
   ThemePreferences _preferences = ThemePreferences();
+
   String _team = '';
   String get team => _team;
+
   IconData _icon = Icons.wb_sunny;
   IconData get icon => _icon;
+
   ThemeData _theme = ThemeData.light();
   ThemeData get theme => _theme;
 
@@ -60,11 +63,11 @@ class ThemeModel extends ChangeNotifier {
         }
     }
     _preferences.setTheme(_team);
-    updateTeam();
+    updateData();
     notifyListeners();
   }
 
-  void updateTeam() async {
+  void updateData() async {
     switch (_team) {
       case 'Dark':
         {
@@ -76,7 +79,7 @@ class ThemeModel extends ChangeNotifier {
         {
           _icon = Icons.account_balance_sharp;
           _theme = ThemeData(
-            primarySwatch: Colors.pink,
+            primarySwatch: Colors.deepPurple,
           );
           break;
         }
@@ -84,7 +87,7 @@ class ThemeModel extends ChangeNotifier {
         {
           _icon = Icons.adb;
           _theme = ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.teal,
           );
           break;
         }
@@ -122,7 +125,7 @@ class ThemeModel extends ChangeNotifier {
 
   getPreferences() async {
     _team = await _preferences.getTheme();
-    updateTeam();
+    updateData();
     notifyListeners();
   }
 }
