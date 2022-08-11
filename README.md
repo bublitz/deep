@@ -1,16 +1,33 @@
-# teste
+# POC Deep Link
 
-A new Flutter project.
+## Android
 
-## Getting Started
+#### Adicionar ao `AndroidManifest.xml` dentro da tag `<activity>` a propriedade `autoVerify` e o `intent-filter`, conforme abaixo:
 
-This project is a starting point for a Flutter application.
+```
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    <intent-filter>
+      <action android:name="android.intent.action.VIEW" />
+      <category android:name="android.intent.category.DEFAULT" />
+      <category android:name="android.intent.category.BROWSABLE" />
+      <data android:scheme="magnumbank" />
+      <data android:scheme="https" android:host="www.magnumbank.com.br" />
+      <data android:scheme="http" android:host="www.magnumbank.com.br" />
+    </intent-filter>
+```
 
-A few resources to get you started if this is your first Flutter project:
+#### Comandos para testar no Android:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+npx uri-scheme open "magnumbank://team/teste" --android
+
+adb shell am start -W -a android.intent.action.VIEW -d "magnumbank://list" br.net.drache.deeplink
+
+adb shell am start -W -a android.intent.action.VIEW -d "magnumbank://detail" br.net.drache.deeplink
+
+adb shell am start -W -a android.intent.action.VIEW -d "magnumbank://team/teste" br.net.drache.deeplink
+```
