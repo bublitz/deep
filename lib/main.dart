@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(themeNotifier.icon),
                 onPressed: () {
                   themeNotifier.nextTeam();
-                  print("Theme change clicked");
                 })
           ],
         ),
@@ -53,8 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
+              child: const Padding(
+                padding: EdgeInsets.all(12.0),
                 child: Text(
                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. \nLorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
                   style: TextStyle(fontSize: 14),

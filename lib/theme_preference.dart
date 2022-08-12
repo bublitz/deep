@@ -12,6 +12,6 @@ class ThemePreferences {
 
   getTheme() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getString(PREF_KEY) ?? '';
+    return sharedPreferences.getString(PREF_KEY) ?? 'Light'; //default
   }
 }

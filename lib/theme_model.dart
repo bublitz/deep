@@ -34,10 +34,10 @@ class ThemeModel extends ChangeNotifier {
         }
       case 'Bank':
         {
-          _team = 'Adb';
+          _team = 'Android';
           break;
         }
-      case 'Adb':
+      case 'Android':
         {
           _team = 'Air';
           break;
@@ -83,7 +83,7 @@ class ThemeModel extends ChangeNotifier {
           );
           break;
         }
-      case 'Adb':
+      case 'Android':
         {
           _icon = Icons.adb;
           _theme = ThemeData(
