@@ -8,12 +8,6 @@ void main() {
   runApp(MyApp());
 }
 
-/*
- theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
-*/
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

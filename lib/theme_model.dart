@@ -67,7 +67,7 @@ class ThemeModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateData() async {
+  void updateData() {
     switch (_team) {
       case 'Dark':
         {
