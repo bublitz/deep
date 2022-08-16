@@ -19,9 +19,19 @@
     </intent-filter>
 ```
 
+https://firebase.google.com/docs/dynamic-links/flutter/receive
+
 #### Comandos para testar no Android:
 
 ```
+https://play.google.com/apps/internaltest/4700950427178403616
+
+keytool -genkey -v -keystore \dev\sciensa\keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+- Senhas: magnum
+
+Fingerprints do certificado:
+         SHA1: 8E:CC:48:6D:41:50:71:0E:8E:B8:61:34:30:47:8A:6F:6E:49:24:F5
+         SHA256: 53:49:9F:65:46:66:BB:DB:54:95:54:DC:9F:D7:84:D7:80:9A:A7:49:D2:15:7C:60:C8:6D:43:F2:5A:24:BA:1A
 
 npx uri-scheme open "magnumbank://team/teste" --android
 

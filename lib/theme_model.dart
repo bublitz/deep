@@ -79,40 +79,35 @@ class ThemeModel extends ChangeNotifier {
         {
           _icon = Icons.account_balance_sharp;
           _theme = ThemeData(
-            primarySwatch: Colors.deepPurple,
-          );
+              primarySwatch: Colors.deepPurple, canvasColor: Colors.indigo);
           break;
         }
       case 'Android':
         {
-          _icon = Icons.adb;
+          _icon = Icons.android;
           _theme = ThemeData(
-            primarySwatch: Colors.teal,
-          );
+              primarySwatch: Colors.teal, canvasColor: Colors.lightBlue);
           break;
         }
       case 'Air':
         {
           _icon = Icons.air;
           _theme = ThemeData(
-            primarySwatch: Colors.red,
-          );
+              primarySwatch: Colors.red, canvasColor: Colors.deepOrange);
           break;
         }
       case 'Bus':
         {
           _icon = Icons.bus_alert;
-          _theme = ThemeData(
-            primarySwatch: Colors.orange,
-          );
+          _theme =
+              ThemeData(primarySwatch: Colors.orange, canvasColor: Colors.lime);
           break;
         }
       case 'Corona':
         {
           _icon = Icons.coronavirus;
           _theme = ThemeData(
-            primarySwatch: Colors.green,
-          );
+              primarySwatch: Colors.green, canvasColor: Colors.lightGreen);
           break;
         }
       default:
