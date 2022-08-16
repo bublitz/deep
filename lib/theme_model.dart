@@ -15,8 +15,15 @@ class ThemeModel extends ChangeNotifier {
   ThemeData _theme = ThemeData.light();
   ThemeData get theme => _theme;
 
-  ThemeModel() {
-    getPreferences();
+  ThemeModel([team]) {
+    if (team != null) {
+      _team = team;
+      _preferences.setTheme(team);
+      updateData();
+      notifyListeners();
+    } else {
+      getPreferences();
+    }
   }
 
   set team(String value) {

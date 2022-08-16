@@ -14,24 +14,18 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Get any initial links
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final PendingDynamicLinkData? initialLink =
       await FirebaseDynamicLinks.instance.getInitialLink();
 
+  String team = 'Bank';
+
   if (initialLink != null) {
+    final Uri deepLink = initialLink.link;
+    team = deepLink.path;
     Fluttertoast.showToast(
-        msg: initialLink.link.toString(),
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0);
-  } else {
-    Fluttertoast.showToast(
-        msg: "initialLink.link.toString()",
+        msg: deepLink.path,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
@@ -39,17 +33,18 @@ Future<void> main() async {
         textColor: Colors.white,
         fontSize: 16.0);
   }
-
-  runApp(MyApp(initialLink));
+  runApp(MyApp(team: team));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp(initialLink);
+  const MyApp({required this.team});
+
+  final String team;
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => ThemeModel(),
+      create: (_) => ThemeModel(team),
       child: Consumer<ThemeModel>(
           builder: (context, ThemeModel themeNotifier, child) {
         return MaterialApp(
