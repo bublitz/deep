@@ -19,7 +19,7 @@ Future<void> main() async {
   final PendingDynamicLinkData? initialLink =
       await FirebaseDynamicLinks.instance.getInitialLink();
 
-  String team = 'Bank';
+  String team;
 
   if (initialLink != null) {
     final Uri deepLink = initialLink.link;
@@ -32,7 +32,10 @@ Future<void> main() async {
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0);
+  } else {
+    team = 'Android';
   }
+
   runApp(MyApp(team: team));
 }
 

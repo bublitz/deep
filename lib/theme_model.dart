@@ -29,6 +29,7 @@ class ThemeModel extends ChangeNotifier {
   set team(String value) {
     _team = value;
     _preferences.setTheme(value);
+    updateData();
     notifyListeners();
   }
 
@@ -101,6 +102,13 @@ class ThemeModel extends ChangeNotifier {
           _icon = Icons.air;
           _theme = ThemeData(
               primarySwatch: Colors.red, canvasColor: Colors.deepOrange);
+          break;
+        }
+      case '/app':
+        {
+          _icon = Icons.air;
+          _theme = ThemeData(
+              primarySwatch: Colors.indigo, canvasColor: Colors.blueGrey);
           break;
         }
       case 'Bus':
