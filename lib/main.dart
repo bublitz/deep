@@ -23,7 +23,23 @@ Future<void> main() async {
 
   if (initialLink != null) {
     final Uri deepLink = initialLink.link;
-    team = deepLink.path;
+    //team = deepLink.path;
+    switch (deepLink.path) {
+      case '/app':
+        {
+          team = 'Android';
+          break;
+        }
+      case '/team1':
+        {
+          team = 'Corona';
+          break;
+        }
+      default:
+        {
+          team = 'Dark';
+        }
+    }
     Fluttertoast.showToast(
         msg: deepLink.path,
         toastLength: Toast.LENGTH_LONG,
