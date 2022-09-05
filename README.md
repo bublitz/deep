@@ -41,7 +41,7 @@ adb shell am start -W -a android.intent.action.VIEW -d "magnumbank://detail" br.
 
 adb shell am start -W -a android.intent.action.VIEW -d "magnumbank://team/teste" br.net.drache.deeplink
 ```
-## Links:
+## Links (somente Android):
 
 https://magnumbank.page.link/app
 
